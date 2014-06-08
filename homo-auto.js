@@ -8,9 +8,9 @@
 
 */
 
-var Backbone = require('backbone');
+//var Backbone = require('backbone');
 
-
+/*
 var Meal = Backbone.Model.extend({
   defaults: {
     "appetizer":  "caesar salad",
@@ -20,14 +20,24 @@ var Meal = Backbone.Model.extend({
 });
 
 console.log("Dessert will be " + (new Meal).get('dessert'));
+*/
 
-var five = require("johnny-five"),
-    board = new five.Board();
+var five = require("johnny-five");
+var board = new five.Board();
+var ping, led;
 
 board.on("ready", function() {
+  led = new five.Led(13);
+  ping = new five.Ping(7);
 
-  // Create an Led on pin 13 and strobe it on/off
-  // Optionally set the speed; defaults to 100ms
-  (new five.Led(13)).strobe();
+  ping.on('change', function(err, val){
+    console.log(this.cm);
+    if(this.cm < 5){
+      led.on();
+    }
+    else{
+      led.off();
+    }
+  });
 
 });
