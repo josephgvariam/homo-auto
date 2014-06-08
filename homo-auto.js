@@ -8,3 +8,15 @@
 
 */
 
+var Backbone = require('backbone');
+
+
+var Meal = Backbone.Model.extend({
+  defaults: {
+    "appetizer":  "caesar salad",
+    "entree":     "ravioli",
+    "dessert":    "cheesecake"
+  }
+});
+
+console.log("Dessert will be " + (new Meal).get('dessert'));
