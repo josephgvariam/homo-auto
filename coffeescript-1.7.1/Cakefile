@@ -1,6 +1,6 @@
 fs            = require 'fs'
 path          = require 'path'
-_             = require 'underscore'
+_             = require '../underscore'
 CoffeeScript  = require './lib/coffee-script'
 {spawn, exec} = require 'child_process'
 helpers       = require './lib/coffee-script/helpers'
