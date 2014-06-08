@@ -21,7 +21,7 @@ var Meal = Backbone.Model.extend({
 
 console.log("Dessert will be " + (new Meal).get('dessert'));
 
-var five = require("./johnny-five/lib/johnny-five"),
+var five = require("johnny-five"),
     board = new five.Board();
 
 board.on("ready", function() {
